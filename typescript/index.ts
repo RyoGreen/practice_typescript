@@ -5,14 +5,14 @@ class BankAccount {
 
   constructor(initialBalance: number, accountNumber: number, accountType: number) {
     switch (accountType) {
-      case AccountType.Individual:
-        this.accountType = AccountType.Individual;
+      case AccountType.INDIVIDUAL:
+        this.accountType = AccountType.INDIVIDUAL;
         break;
-      case AccountType.Company:
-        this.accountType = AccountType.Company;
+      case AccountType.COMPANY:
+        this.accountType = AccountType.COMPANY;
         break;
       default:
-        this.accountType = AccountType.Other;
+        this.accountType = AccountType.OTHER;
         break;
     }
 
@@ -38,16 +38,14 @@ class BankAccount {
 }
 
 enum AccountType {
-  Individual = 1,
-  Company = 2,
-  Other = 99,
+  INDIVIDUAL = 1,
+  COMPANY = 2,
+  OTHER = 99,
 }
 
 function main() {
-  let account = new BankAccount(100, 1234, AccountType.Individual);
+  let account = new BankAccount(100, 1234, AccountType.INDIVIDUAL);
   account.deposit(50);
   account.withdraw(10);
   console.log(account);
 }
-
-main();
