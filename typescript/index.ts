@@ -49,3 +49,48 @@ function main() {
   account.withdraw(10);
   console.log(account);
 }
+
+let str = "hello";
+str = str + "world";
+console.log(str);
+
+interface Score {
+  math: number;
+  science: number;
+}
+
+let studentOne: Score = {
+  math: 100,
+  science: 90,
+};
+
+let studentTwo: Score = {
+  math: 80,
+  science: 70,
+};
+
+type Color = "red" | "green" | "blue";
+
+let loanColor: Color = "green";
+
+function getHexColor(color: Color): string {
+  switch (color) {
+    case "red":
+      return "red color";
+    case "green":
+      return "green color";
+    case "blue":
+      return "blue color";
+  }
+}
+
+const map = new Map<string, number>();
+map.set("one", 1);
+
+if (map.has("one")) {
+  console.log(map.get("one"));
+}
+
+for (const [key, value] of map) {
+  console.log(key, value);
+}
