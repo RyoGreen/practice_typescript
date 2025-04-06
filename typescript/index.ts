@@ -94,3 +94,12 @@ if (map.has("one")) {
 for (const [key, value] of map) {
   console.log(key, value);
 }
+
+const s = new Set<number>();
+s.add(1);
+s.add(2);
+s.add(1);
+
+for (const value of s) {
+  console.log(value);
+}
