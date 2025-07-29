@@ -1,1 +1,2 @@
 # practice_typescript
+TypeScriptを学ぶためのただのPlaygroundみたいなものです
