@@ -4,6 +4,7 @@
 /build
 postgres
 env
+docker-compose.yml
 
 # Logs
 logs
