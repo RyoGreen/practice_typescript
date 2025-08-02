@@ -3,7 +3,7 @@ import { Status } from './status';
 export class User {
     id: number;
     email: string;
-    name?: string;
+    name: string;
     status?: Status[];
 
     constructor(user: User) {
@@ -13,6 +13,18 @@ export class User {
         this.status = user.status;
     }
 }
+
+export class CreateUser {
+    email: string;
+    name: string;
+
+    constructor(user: CreateUser) {
+        this.email = user.email;
+        this.name = user.name;
+    }
+}
+
+
 
 export interface IUserRepository {
     Get(): Promise<User[]>;

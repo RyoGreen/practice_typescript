@@ -1,6 +1,5 @@
-import { IUserRepository, User } from "src/domain/user";
+import { IUserRepository, User, CreateUser } from "src/domain/user";
 import { prisma } from "./postgresql";
-import { emit } from "process";
 
 export class UserRepository implements IUserRepository {
     async Get(): Promise<User[]> {
@@ -20,12 +19,12 @@ export class UserRepository implements IUserRepository {
         return new User({
             id: user.id,
             email: user.email,
-            name: user.name,
+            name: user.name ?? "",
         }
         );
 
     }
-    async Create(post: User): Promise<User> {
+    async Create(post: CreateUser): Promise<User> {
 
     }
     async Update(post: User): Promise<User> {
