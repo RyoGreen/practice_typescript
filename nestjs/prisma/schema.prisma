@@ -8,10 +8,10 @@ datasource db {
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String
-  posts   Post[]
+  id            Int             @id @default(autoincrement())
+  email         String          @unique
+  name          String
+  posts         Post[]
   statusMapping StatusMapping[]
 }
 
@@ -25,15 +25,16 @@ model Post {
 }
 
 model StatusMapping {
-    statusId Int
-    userId Int
-    user    User?   @relation(fields: [userId], references: [id])
-    status    Status?   @relation(fields: [statusId], references: [id])
-    @@id([statusId, userId])
+  statusId Int
+  userId   Int
+  user     User?   @relation(fields: [userId], references: [id])
+  status   Status? @relation(fields: [statusId], references: [id])
+
+  @@id([statusId, userId])
 }
 
 model Status {
-    id      Int      @id @default(autoincrement())
-    name String
+  id            Int             @id @default(autoincrement())
+  name          String
   statusMapping StatusMapping[]
 }
