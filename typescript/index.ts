@@ -1,105 +1,30 @@
-class BankAccount {
-  private balance: number;
-  public accountNumber: number;
-  public accountType: AccountType;
-
-  constructor(initialBalance: number, accountNumber: number, accountType: number) {
-    switch (accountType) {
-      case AccountType.INDIVIDUAL:
-        this.accountType = AccountType.INDIVIDUAL;
-        break;
-      case AccountType.COMPANY:
-        this.accountType = AccountType.COMPANY;
-        break;
-      default:
-        this.accountType = AccountType.OTHER;
-        break;
-    }
-
-    this.balance = initialBalance;
-    this.accountNumber = accountNumber;
-  }
-
-  public deposit(amount: number) {
-    this.getBalance();
-    this.balance += amount;
-  }
-
-  private getBalance(): number {
-    return this.balance;
-  }
-
-  public withdraw(amount: number) {
-    if (this.balance < amount) {
-      throw new Error("Insufficient funds");
-    }
-    this.balance -= amount;
-  }
+function one() {
+    console.log("function One is called")
+    // throw new Error("Error in function One");
+    console.log("function One completed successfully");
 }
 
-enum AccountType {
-  INDIVIDUAL = 1,
-  COMPANY = 2,
-  OTHER = 99,
+function two() {
+    console.log("function Two is called")
+    one();
+    console.log("function Two completed successfully");
+}
+
+function three() {
+    console.log("function Three is called")
+    two();
+    console.log("function Three completed successfully");
+
 }
 
 function main() {
-  let account = new BankAccount(100, 1234, AccountType.INDIVIDUAL);
-  account.deposit(50);
-  account.withdraw(10);
-  console.log(account);
+    try {
+        three();
+    } catch (error) {
+        console.error("An error occurred:", error.message);
+    } finally {
+        console.log("Execution completed.");
+    }
 }
 
-let str = "hello";
-str = str + "world";
-console.log(str);
-
-interface Score {
-  math: number;
-  science: number;
-}
-
-let studentOne: Score = {
-  math: 100,
-  science: 90,
-};
-
-let studentTwo: Score = {
-  math: 80,
-  science: 70,
-};
-
-type Color = "red" | "green" | "blue";
-
-let loanColor: Color = "green";
-
-function getHexColor(color: Color): string {
-  switch (color) {
-    case "red":
-      return "red color";
-    case "green":
-      return "green color";
-    case "blue":
-      return "blue color";
-  }
-}
-
-const map = new Map<string, number>();
-map.set("one", 1);
-
-if (map.has("one")) {
-  console.log(map.get("one"));
-}
-
-for (const [key, value] of map) {
-  console.log(key, value);
-}
-
-const s = new Set<number>();
-s.add(1);
-s.add(2);
-s.add(1);
-
-for (const value of s) {
-  console.log(value);
-}
+main();
