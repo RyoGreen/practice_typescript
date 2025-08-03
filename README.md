@@ -1,2 +1,2 @@
 # practice_typescript
-TypeScriptを学ぶためのただのPlaygroundみたいなものです
+This Repository is a Playground for learning TypeScript
