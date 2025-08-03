@@ -6,14 +6,14 @@ import { IUserRepository } from './domain/user';
 import { UserRepository } from './infrastructure/user';
 
 @Module({
-    imports: [PrismaModule],
-    controllers: [UserController],
-    providers: [
-        UserUsecase,
-        {
-            provide: IUserRepository,
-            useClass: UserRepository,
-        },
-    ],
+  imports: [PrismaModule],
+  controllers: [UserController],
+  providers: [
+    UserUsecase,
+    {
+      provide: IUserRepository,
+      useClass: UserRepository,
+    },
+  ],
 })
-export class AppModule { }
+export class AppModule {}
