@@ -28,6 +28,7 @@ export const IUserRepository = Symbol('IUserRepository');
 export interface IUserRepository {
   Get(): Promise<User[]>;
   GetById(id: number): Promise<User | null>;
+  GetByEmail(email: string): Promise<User | null>;
   Create(user: CreateUser): Promise<User>;
   Update(user: User): Promise<User>;
   Delete(id: number): Promise<void>;

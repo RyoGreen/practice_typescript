@@ -18,6 +18,10 @@ export class UserUsecase {
   }
   @Post()
   async Create(user: CreateUser): Promise<User> {
+    const existingUser = await this.userRepository.GetByEmail(user.email);
+    if (existingUser) {
+      throw new Error(`User with email ${user.email} already exists.`);
+    }
     return await this.userRepository.Create(user);
   }
   @Patch()
