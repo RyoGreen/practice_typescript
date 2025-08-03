@@ -1,12 +1,10 @@
 import { IUserRepository, User, CreateUser } from 'src/domain/user';
-import { PrismaClient } from '@prisma/client';
+import { PrismaService } from './prisma.service';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export class UserRepository implements IUserRepository {
-  prisma: PrismaClient;
-  constructor(prisma: PrismaClient) {
-    this.prisma = prisma;
-  }
-
+  constructor(private readonly prisma: PrismaService) {}
   async Get(): Promise<User[]> {
     const users = await this.prisma.user.findMany({
       orderBy: {

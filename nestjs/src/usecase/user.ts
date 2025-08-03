@@ -1,10 +1,12 @@
-import { Get, Post, Injectable, Patch, Delete } from '@nestjs/common';
+import { Get, Post, Injectable, Patch, Delete, Inject } from '@nestjs/common';
 import { IUserRepository } from 'src/domain/user';
 import { User } from 'src/domain/user';
 
 @Injectable()
 export class UserUsecase {
-  constructor(private readonly userRepository: IUserRepository) {}
+  constructor(
+    @Inject(IUserRepository) private readonly userRepository: IUserRepository,
+  ) {}
 
   @Get()
   async List(): Promise<User[]> {

@@ -24,6 +24,7 @@ export class CreateUser {
   }
 }
 
+export const IUserRepository = Symbol('IUserRepository');
 export interface IUserRepository {
   Get(): Promise<User[]>;
   GetById(id: number): Promise<User | null>;
