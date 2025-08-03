@@ -1,6 +1,6 @@
 import { Get, Post, Injectable, Patch, Delete, Inject } from '@nestjs/common';
 import { IUserRepository } from 'src/domain/user';
-import { User } from 'src/domain/user';
+import { User, CreateUser } from 'src/domain/user';
 
 @Injectable()
 export class UserUsecase {
@@ -17,7 +17,7 @@ export class UserUsecase {
     return (await this.userRepository.GetById(id)) ?? null;
   }
   @Post()
-  async Create(user: User): Promise<User> {
+  async Create(user: CreateUser): Promise<User> {
     return await this.userRepository.Create(user);
   }
   @Patch()
