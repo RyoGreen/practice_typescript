@@ -4,10 +4,8 @@ export type StudentFormData = {
     firstName: string;
     lastName: string;
     email: string;
-    school: {
-        id: string;
-        departmentId: string;
-    };
+    schoolId: string;
+    departmentId: string;
 };
 
 export const postStudent = (data: StudentFormData) =>
