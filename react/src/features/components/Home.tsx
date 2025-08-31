@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const HomeField: React.FC = () => {
+type HomeFieldProps = {
+    message?: string;
+    title: string;
+};
+
+const HomeField: React.FC<HomeFieldProps> = (props) => {
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, []);
     return (
-        <div className="min-h-full flex flex-col items-center justify-center bg-gray-100 p-4">
-            This is Home Page
+        <div>
+            {isLoading ? (
+                <p>Loading...</p>
+            ) : (
+                <>
+                    <p>{props.title}</p>
+                    <p>{props.message ?? "This is Home Page"}</p>
+                </>
+            )}
         </div>
     );
 };
