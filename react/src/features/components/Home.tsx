@@ -18,7 +18,7 @@ const HomeField: React.FC<HomeFieldProps> = (props) => {
     }, []);
     return (
         <div>
-            <div>
+            <div className="mb-4">
                 <button onClick={props.click}>Click Me</button>
             </div>
             {isLoading ? (

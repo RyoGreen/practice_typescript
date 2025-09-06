@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import HomeField from "../features/components/Home";
+import { UserContext } from "../context/userContext";
 
 const Home: React.FC = () => {
     const [count, setCount] = useState(0);
+    const user = useContext(UserContext);
     return (
         <div className="bg-gray-100">
             <div>Count: {count}</div>
-            <HomeField title="Title" message="Props message" click={
-                () => setCount(count + 1)
+            <div>User: {user ? `${user.name} (${user.age})` : "No User"}</div>
+            <HomeField title="Title First" message="Props First message" click={
+                () => {
+                    setCount(count + 1)
+                    alert('Clicked!');
+                }
             } />
-            <HomeField title="Title" message="Props message" click={() => setCount(count + 1)} />
+            <HomeField title="Title Two" message="Props Second message" click={() => setCount(count + 1)} />
         </div>
     );
 };

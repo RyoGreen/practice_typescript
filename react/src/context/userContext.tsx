@@ -1,0 +1,28 @@
+import { createContext } from "react";
+import React from "react";
+
+export type User = {
+    id: number;
+    name: string;
+    age: number;
+}
+
+export const UserContext = createContext<User | null>(null);
+
+type Props = {
+    children: React.ReactNode;
+}
+
+export const UserProvider: React.FC<Props> = ({ children }) => {
+    return (
+        <UserContext.Provider
+            value={{
+                id: 1,
+                name: "John Doe",
+                age: 30,
+            }}
+        >
+            {children}
+        </UserContext.Provider>
+    );
+};
