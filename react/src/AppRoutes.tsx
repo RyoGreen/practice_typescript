@@ -7,7 +7,6 @@ import { UserProvider } from "./context/userContext";
 const AppRoutes: React.FC = () => {
     return (
         <UserProvider>
-
             < Routes >
                 <Route path="/" element={<Home />} />
                 < Route path="/detail" element={< Detail />} />
