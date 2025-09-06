@@ -21,7 +21,7 @@ export function tryCatch() {
     try {
         three();
     } catch (error) {
-        console.error("An error occurred:", error.message);
+        console.error("An error occurred:", error);
     } finally {
         console.log("Execution completed.");
     }
