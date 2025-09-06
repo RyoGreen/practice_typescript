@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 type HomeFieldProps = {
     message?: string;
     title: string;
+    click?: () => void;
 };
 
 const HomeField: React.FC<HomeFieldProps> = (props) => {
@@ -17,6 +18,9 @@ const HomeField: React.FC<HomeFieldProps> = (props) => {
     }, []);
     return (
         <div>
+            <div>
+                <button onClick={props.click}>Click Me</button>
+            </div>
             {isLoading ? (
                 <p>Loading...</p>
             ) : (
