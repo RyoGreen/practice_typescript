@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import HomeField from "../features/components/Home";
+import HomeField from "../features/Home/components/Field";
 import { UserContext } from "../context/userContext";
 
 const Home: React.FC = () => {
