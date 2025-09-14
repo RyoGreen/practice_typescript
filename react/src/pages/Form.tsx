@@ -1,16 +1,8 @@
-export default function Form() {
+import FormField from "../features/Form/components/FormField"
+
+const Form: React.FC = () => {
     return (
-        <form>
-            <div>
-                <input type="text" placeholder="Enter text" />
-            </div>
-            <div>
-                <input type="number" placeholder="Enter number" />
-            </div>
-            <div>
-                <input type="email" placeholder="Enter email" />
-            </div>
-            <button type="submit">Submit</button>
-        </form>
+        <FormField />
     )
 }
+export default Form
