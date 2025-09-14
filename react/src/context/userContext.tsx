@@ -1,9 +1,10 @@
 import { createContext } from "react";
 import React from "react";
 
-export type User = {
+type User = {
     id: number;
-    name: string;
+    firstName: string;
+    lastName: string;
     age: number;
 }
 
@@ -18,7 +19,8 @@ export const UserProvider: React.FC<Props> = ({ children }) => {
         <UserContext.Provider
             value={{
                 id: 1,
-                name: "John Doe",
+                firstName: "John",
+                lastName: "Smith",
                 age: 30,
             }}
         >

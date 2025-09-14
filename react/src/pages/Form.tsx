@@ -2,19 +2,17 @@ import TextField from "../features/Form/components/TextField"
 import NumberField from "../features/Form/components/NumberField"
 import EmailField from "../features/Form/components/EmailField"
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { UserContext } from "../context/userContext";
+import type { UserFormData } from "../schemas/user";
 
-type FormDate = {
-    firstname: string;
-    lastName: string;
-    number: number;
-    email: string;
-}
 
 const Form: React.FC = () => {
-    const { register, handleSubmit, } = useForm<FormDate>({
+    const user = useContext(UserContext)
+    const { register, handleSubmit, } = useForm<UserFormData>({
         defaultValues: {
-            firstname: "first_name",
-            lastName: "last_name",
+            firstName: user ? user.firstName : "first_name",
+            lastName: user ? user.lastName : "last_name",
             number: 1,
             email: "test@example.com"
         }

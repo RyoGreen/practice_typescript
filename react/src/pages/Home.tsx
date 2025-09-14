@@ -8,7 +8,7 @@ const Home: React.FC = () => {
     return (
         <div className="bg-gray-100">
             <div>Count: {count}</div>
-            <div>User: {user ? `${user.name} (${user.age})` : "No User"}</div>
+            <div>User: {user ? `${user.firstName} ${user.lastName} (${user.age})` : "No User"}</div>
             <HomeField title="Title First" message="Props First message" click={
                 () => {
                     setCount(count + 1)

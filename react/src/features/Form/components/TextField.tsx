@@ -1,21 +1,17 @@
 import type { UseFormRegister } from "react-hook-form";
-
-type FormData = {
-    firstname: string;
-    lastName: string;
-};
+import type { UserFormData } from "../../../schemas/user";
 
 type Props = {
-    register: UseFormRegister<FormData>;
+    register: UseFormRegister<UserFormData>;
 };
 
-export default function NameFields({ register }: Props) {
+export default function TextField({ register }: Props) {
     return (
         <div className="space-y-2">
             <input
                 type="text"
                 placeholder="First name"
-                {...register("firstname")}
+                {...register("firstName")}
                 className="border px-2 py-1 rounded w-full"
             />
             <input
@@ -27,4 +23,3 @@ export default function NameFields({ register }: Props) {
         </div>
     );
 }
-
